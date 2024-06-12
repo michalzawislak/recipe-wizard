@@ -7,6 +7,8 @@ import path from 'path';
 import { generateRecipe } from './common/generate-recipe';
 import { RecipeData } from './models/recipe-response';
 import { GenerateRecipeRequest } from './models/recipe-request';
+import { GetIngredientsRequest } from './models/photo-request';
+import { getIngredientsFromImage } from './common/get-ingredients-from-image';
 
 dotenv.config();
 
@@ -41,6 +43,11 @@ fastify.post('/api/generate-recipe', async (request: FastifyRequest<GenerateReci
   reply.send(recipe);
 });
 
+fastify.post('/api/get-ingredients', async (request: FastifyRequest<GetIngredientsRequest>, reply: FastifyReply) => {
+  const ingredietns = await getIngredientsFromImage(request.body.baseImage);
+  reply.send({ ingredients: ingredietns });
+});
+
 const runMigrations = async () => {
   const initSql = fs.readFileSync(path.resolve(__dirname, 'migrations/init.sql'), 'utf-8');
   await pool.query(initSql);
@@ -57,3 +64,4 @@ const start = async () => {
 };
 
 start();
+

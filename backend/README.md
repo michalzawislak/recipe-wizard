@@ -4,7 +4,7 @@
 An application that generates culinary recipes based on available ingredients, dietary preferences, selected cuisine, and calorie count.
 
 ## Technologies
-- Frontend: Angular
+- Frontend: Ionic
 - Backend: Node.js with Fastify
 - Database: PostgreSQL
 - APIs: OpenAI
@@ -12,11 +12,9 @@ An application that generates culinary recipes based on available ingredients, d
 ## Installation
 
 ### Frontend
-1. Install Angular CLI: `npm install -g @angular/cli`
-2. Create a new project: `ng new recipe-generator`
-3. Navigate to the project directory: `cd recipe-generator`
-4. Install dependencies: `npm install`
-5. Run the project: `ng serve`
+1. Navigate to the backend directory: `cd frontend`
+2. Install dependencies: `npm install`
+3. Run the project: `ionic serve`
 
 ### Backend
 1. Navigate to the backend directory: `cd backend`

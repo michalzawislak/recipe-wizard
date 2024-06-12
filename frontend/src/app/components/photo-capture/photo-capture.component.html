@@ -1,0 +1,19 @@
+<ion-grid>
+  <ion-row>
+    <ion-col class="webcam-container">
+      <div class="image-container">
+        @if (webcamImage) {
+          <img [src]="webcamImage.imageAsDataUrl"/>
+        } @else {
+          <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+        }
+      </div>  
+      <ion-button
+        (click)="triggerSnapshot()" 
+        type="submit" 
+        color="success" 
+        expand="block">
+      Zrób zdjęcie</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

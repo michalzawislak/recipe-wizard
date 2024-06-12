@@ -1,0 +1,49 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <form [formGroup]="recipeDataForm" (ngSubmit)="submitForm()" novalidate>
+        <ion-item lines="full">
+          <ion-label position="floating">Ingredients</ion-label>
+          <ion-input
+            formControlName="ingredients"
+            type="text"
+            aria-label="Ingredients"
+          ></ion-input>
+        </ion-item>
+      
+        <ion-item lines="full">
+          <ion-select formControlName="diet" label="Diet">
+            @for (diet of diets; track $index) {
+              <ion-select-option value="{{diet}}">{{diet}}</ion-select-option>
+            }
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="full">
+          <ion-select formControlName="cuisine" label="Cuisine">
+            @for (cuisine of cuisines; track $index) {
+              <ion-select-option value="{{cuisine}}">{{cuisine}}</ion-select-option>
+            }
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="full">
+          <ion-label position="floating">Kcal</ion-label>
+          <ion-input
+            formControlName="kcal"
+            type="number"
+            aria-label="Kcal"
+          ></ion-input>
+        </ion-item>
+      
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="success" expand="block"
+              >Przygotuj przepis</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-col>
+  </ion-row>
+</ion-grid>
